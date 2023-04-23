@@ -2,10 +2,22 @@
   "schemaVersion": 2,
   "dockerfileLines": [
     "FROM node:16.16-alpine",
-    "WORKDIR /alubric-stable",
+    "WORKDIR /app",
     "COPY package*.json ./",
     "RUN npm install",
+    "COPY . .",
     "RUN npm run build",
-    "RUN npm run start"
-  ]
+    "EXPOSE 3000",
+    "CMD [\"npm\", \"run\", \"start\"]"
+  ],
+  "context": ".",
+  "appName": "my-nextjs-app",
+  "envVars": {
+    "NODE_ENV": "production"
+  },
+  "appPort": 3000,
+  "webhooks": {
+    "success": [],
+    "failure": []
+  }
 }
