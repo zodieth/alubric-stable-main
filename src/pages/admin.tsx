@@ -1,4 +1,3 @@
-// import { Poppins } from "next/font/google/";
 "use client";
 import AdminNav from "./components/AdminNav";
 import SideBar from "./components/SideBar";
@@ -7,6 +6,8 @@ import FilesTable from "./components/FilesTable";
 import { Poppins } from "next/font/google";
 import { useState } from "react";
 import Paginado from "./components/Pagination";
+import { useSession, signIn, signOut } from "next-auth/react";
+import Login from "./components/Login";
 
 export const metadata = {
   title: "Create Next App",
@@ -28,26 +29,35 @@ export default function Admin({ data }: any) {
 
   //---------------------------------------------
 
-  return (
-    <div lang="en" className={poppins.className}>
-      <AdminNav />
-      <div className="flex bg-gray-200 h-screen">
-        <SideBar />
-        <div className="flex flex-col w-full">
-          <div className=" m-4">
-            <div>
-              <FilesTable cotizacion={currentFiles} />
-              <Paginado
-                paginado={paginado}
-                filesPerPage={filesPerPage}
-                files={data}
-                current={currentPage}
-              />
+  const { data: session } = useSession();
+
+  if (session?.user?.email === "sistemasalubric@gmail.com") {
+    return (
+      <div lang="en" className={poppins.className}>
+        <AdminNav />
+        <div className="flex bg-gray-200 h-screen">
+          <SideBar />
+          <div className="flex flex-col w-full">
+            <div className=" m-4">
+              <div>
+                <FilesTable cotizacion={currentFiles} />
+                <Paginado
+                  paginado={paginado}
+                  filesPerPage={filesPerPage}
+                  files={data}
+                  current={currentPage}
+                />
+              </div>
             </div>
+            <div className="w-full bg-white h-full"></div>
           </div>
-          <div className="w-full bg-white h-full"></div>
         </div>
       </div>
+    );
+  }
+  return (
+    <div className={poppins.className}>
+      <Login />
     </div>
   );
 }

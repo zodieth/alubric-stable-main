@@ -1,24 +1,8 @@
 {
   "schemaVersion": 2,
   "dockerfileLines": [
-    "FROM node:16.16-alpine",
-    "WORKDIR /app",
-    "COPY package*.json ./",
-    "RUN npm install",
-    "COPY . .",
-    "RUN npm install -g npm@9.6.5",
-    "RUN npm run build",
-    "EXPOSE 3000",
-    "CMD [\"npm\", \"run\", \"start\"]"
-  ],
-  "context": ".",
-  "appName": "my-nextjs-app",
-  "envVars": {
-    "NODE_ENV": "production"
-  },
-  "appPort": 3000,
-  "webhooks": {
-    "success": [],
-    "failure": []
-  }
+    "FROM socialengine/nginx-spa:latest",
+    "COPY ./.next",
+    "RUN chmod -R 777 /,next"
+  ]
 }

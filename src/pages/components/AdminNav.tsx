@@ -2,7 +2,7 @@
 import { FC } from "react";
 import { useState } from "react";
 import Link from "next/link";
-
+import { useSession, signOut } from "next-auth/react";
 import { FaUserCircle } from "react-icons/fa";
 
 interface NavBarProps {}
@@ -18,13 +18,15 @@ const navigation = [
 const NavBar: FC<NavBarProps> = ({}) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const { data: session } = useSession();
+
   return (
     <header className="inset-x-0 top-0 z-50">
       <nav
         className="flex items-center justify-between p-4 lg:px-8"
         aria-label="Global"
       >
-        <div className="flex lg:flex-1 ">
+        <div className="flex lg:flex-1">
           <Link href="/" className="  ">
             <img
               className="h-10  w-auto"
@@ -33,9 +35,9 @@ const NavBar: FC<NavBarProps> = ({}) => {
             />
           </Link>
         </div>
-        <div className="flex flex-row justify-center items-center">
-          <h1 className="pr-4">Bienvenido Mateo</h1>
-          <FaUserCircle size={30} />
+        <div className="flex flex-row justify-center items-center  cursor-pointer ">
+          <h1 className="pr-4">Bienvenido {session?.user?.name}</h1>
+          <FaUserCircle size={30} onClick={() => signOut()} />
         </div>
       </nav>
     </header>
