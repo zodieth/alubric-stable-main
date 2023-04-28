@@ -1,8 +1,11 @@
 {
   "schemaVersion": 2,
   "dockerfileLines": [
-    "FROM socialengine/nginx-spa:latest",
-    "COPY ./.next",
-    "RUN chmod -R 777 /.next"
+    "FROM node:latest",
+    "WORKDIR /usr/src/app",
+    "COPY . ./",
+    "RUN npm i",
+    "RUN npm run build",
+    "CMD [\"npm\", \"start\"]"
   ]
 }
