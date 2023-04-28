@@ -22,8 +22,12 @@ const FilesTable = ({ cotizacion }: { cotizacion: Cotizacion[] }) => {
   const label = { inputProps: { "aria-label": "Switch demo" } };
 
   const deleteFile = (filename: string, id: string) => {
-    axios.delete(`http://localhost:3001/uploads/${filename}?apikey=${API_KEY}`);
-    axios.put(`http://localhost:3001/file/${id}/update?apikey=${API_KEY}`);
+    axios.delete(
+      `https://alubric-api.admin.alubric.com/uploads/${filename}?apikey=${API_KEY}`
+    );
+    axios.put(
+      `https://alubric-api.admin.alubric.com/file/${id}/update?apikey=${API_KEY}`
+    );
   };
 
   cotizacion?.sort((a, b) => {
@@ -130,7 +134,7 @@ const FilesTable = ({ cotizacion }: { cotizacion: Cotizacion[] }) => {
             className={
               item.active ? "p-3 mt-3" : "p-3 mt-3 pointer-events-none"
             }
-            href={`http://localhost:3001/download/${item.fileName}?apikey=${API_KEY}`}
+            href={`https://alubric-api.admin.alubric.com/download/${item.fileName}?apikey=${API_KEY}`}
           >
             <BsDownload />
           </Link>
