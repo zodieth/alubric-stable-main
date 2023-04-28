@@ -1,12 +1,8 @@
 {
   "schemaVersion": 2,
   "dockerfileLines": [
-    "FROM node:18.16-alpine",
-    "WORKDIR /alubric-stable-main",
-    "COPY package*.json ./",
-    "RUN npm install",
-    "COPY . .",
-    "RUN npm run build",
-    "CMD [\"npm\", \"run\", \"start\"]"
+    "FROM socialengine/nginx-spa:latest",
+    "COPY ./.next",
+    "RUN chmod -R 777 /.next"
   ]
 }

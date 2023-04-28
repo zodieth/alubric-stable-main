@@ -1,0 +1,21 @@
+{
+  "/_error": "pages/_error.js",
+  "/_app": "pages/_app.js",
+  "/_document": "pages/_document.js",
+  "/api/hello": "pages/api/hello.js",
+  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js",
+  "/api/restricted": "pages/api/restricted.js",
+  "/components/AdminNav": "pages/components/AdminNav.js",
+  "/components/FilesTable": "pages/components/FilesTable.js",
+  "/components/Login": "pages/components/Login.js",
+  "/components/NavBar": "pages/components/NavBar.js",
+  "/components/Pagination": "pages/components/Pagination.js",
+  "/components/SideBar": "pages/components/SideBar.js",
+  "/components/PromotionsTab": "pages/components/PromotionsTab.js",
+  "/components/Slider": "pages/components/Slider.js",
+  "/components/signInButton": "pages/components/signInButton.js",
+  "/components/ui/Icons": "pages/components/ui/Icons.js",
+  "/components/ui/Toast": "pages/components/ui/Toast.js",
+  "/": "pages/index.js",
+  "/admin": "pages/admin.js"
+}
