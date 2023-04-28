@@ -64,7 +64,9 @@ export default function Admin({ data }: any) {
 
 export async function getServerSideProps() {
   const API_KEY = "f8f1e0d6ae9924a3331ac71108507015abbf0369";
-  const files = await axios.get(`http://localhost:3001/file?apikey=${API_KEY}`);
+  const files = await axios.get(
+    `https://alubric-api.admin.alubric.com/file?apikey=${API_KEY}`
+  );
   const data = files.data;
   return { props: { data } };
 }
