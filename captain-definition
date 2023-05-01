@@ -7,10 +7,8 @@
     "RUN npm install --only=production",
     "COPY . .",
     "RUN npm run build",
-    "RUN npm run start",
-    "FROM nginx:alpine",
-    "COPY --from=0 /usr/src/app/out /usr/share/nginx/html",
-    "EXPOSE 80",
-    "CMD [\"nginx\", \"-g\", \"daemon off;\"]"
-  ]
+    "EXPOSE 3000",
+    "CMD [\"npm\",\"run\",\"start\"]"
+  ],
+  "containerHttpPort": "3000"
 }

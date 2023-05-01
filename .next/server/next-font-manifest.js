@@ -1,1 +1,11 @@
-self.__NEXT_FONT_MANIFEST={pages:{"/":["static/media/916d3686010a8de2-s.p.woff2","static/media/9a881e2ac07d406b-s.p.woff2"],"/admin":["static/media/916d3686010a8de2-s.p.woff2","static/media/9a881e2ac07d406b-s.p.woff2"]},app:{},appUsingSizeAdjust:!1,pagesUsingSizeAdjust:!0};
+self.__NEXT_FONT_MANIFEST={
+  "pages": {
+    "/": [
+      "static/media/916d3686010a8de2-s.p.woff2",
+      "static/media/9a881e2ac07d406b-s.p.woff2"
+    ]
+  },
+  "app": {},
+  "appUsingSizeAdjust": false,
+  "pagesUsingSizeAdjust": true
+}
