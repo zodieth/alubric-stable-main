@@ -2,7 +2,7 @@
 
 import { signIn } from "next-auth/react";
 import { FC, useState } from "react";
-import { toast } from "./ui/Toast";
+// import { toast } from "./ui/Toast";
 import { BsGoogle } from "react-icons/bs";
 import { BiLoaderAlt } from "react-icons/bi";
 
@@ -16,11 +16,12 @@ const SignInButton: FC<SignInButtonProps> = ({}) => {
     try {
       await signIn("google");
     } catch (error) {
-      toast({
-        title: "Error signing in",
-        message: "Please try again later",
-        type: "error",
-      });
+      // toast({
+      //   title: "Error signing in",
+      //   message: "Please try again later",
+      //   type: "error",
+      // });
+      console.log(error);
     }
   };
 
